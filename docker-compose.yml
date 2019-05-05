@@ -4,8 +4,8 @@ services:
 
   api:
     image: codait/max-image-segmenter
-    stdin_open: true
-    tty: true
+    environment:
+      - CORS_ENABLE=true
     ports:
       - 5110:5000
       - 8070:3000
