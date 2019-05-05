@@ -1,15 +1,16 @@
 version: '3.7'
 
 services:
+  max-cropping-tool:
+    container_name: max-image-segmenter-web-app
+    image: codait/max-image-segmenter-web-app
+    ports:
+      - '8070:3000'
 
-  api:
+  max-model:
+    container_name: max-image-segmenter
     image: codait/max-image-segmenter
+    ports:
+      - '5110:5000'
     environment:
       - CORS_ENABLE=true
-    ports:
-      - 5110:5000
-      - 8070:3000
-
-  web:
-    image: codait/max-image-segmenter-web-app
-    network_mode: service:api
